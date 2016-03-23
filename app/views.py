@@ -9,19 +9,19 @@ Created on Mar 19, 2016
 from app import app
 from flask.templating import render_template
 
-title = 'Some Title'
+title = 'TaskTrack'
 
 @app.route('/')
 @app.route('/index')
 def index():
-    user = {'nickname': 'Carl Poppa'} #fake user
+    user = {'nickname': 'John Smith'} #fake user
     return render_template('index.tmpl',
                            user=user)
 @app.context_processor    
 def utility_processor():
-    def format_price(amount, currency=u'$'):
-        return u'{1}{0:.2f}'.format(amount, currency)
+    def format_version(version, prefix='v'):
+        return prefix+version
     def get_title():
         return title if title != '' else 'No title here' 
-    return dict(format_price=format_price,
+    return dict(format_version=format_version,
                 get_title=get_title)
