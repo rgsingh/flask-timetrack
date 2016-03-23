@@ -8,6 +8,7 @@ Created on Mar 19, 2016
 
 from app import app
 from flask.templating import render_template
+import json
 
 title = 'TaskTrack'
 
@@ -15,8 +16,17 @@ title = 'TaskTrack'
 @app.route('/index')
 def index():
     user = {'nickname': 'John Smith'} #fake user
+    with open('app/templates/posts.json') as posts_file:
+        posts = json.load(posts_file)
+    
     return render_template('index.tmpl',
-                           user=user)
+                           user=user,
+                           posts=posts)
+
+@app.route('/editpost')
+def editpost():
+    return render_template('editpost.tmpl')    
+    
 @app.context_processor    
 def utility_processor():
     def format_version(version, prefix='v'):

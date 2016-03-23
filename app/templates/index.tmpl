@@ -10,7 +10,13 @@
       <li>React.js</li>
       <li>require.js</li>
       <li>almond.js</li>
-      <li>Flask-Assets</li>
+      <li>Flask-Assets</li>      
     </ul> 
+    {% for post in posts %}
+    <div>      
+      <p>{{ post.author.nickname }} says, <i>"{{ post.body }}"</i></p>
+      <a href={{ post.editurl }}>Edit</a>
+    </div>
+    {% endfor %}    
   </body>
 </html>
