@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+    <p>Integration coming soon:
+    <ul>
+      <li>React.js</li>
+      <li>require.js</li>
+      <li>almond.js</li>
+      <li>Flask-Assets</li>      
+    </ul> 
+    {% for task in tasks %}
+    <div>      
+      <p>{{ task.assignee.nickname }} is assigned task: <i>"{{ task.detail }}"</i></p>
+      <a href={{ task.editurl }}>Edit Task</a>
+    </div>
+    {% endfor %}    
+{% endblock %}

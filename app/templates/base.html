@@ -1,0 +1,12 @@
+<doctype html>
+<html>
+  <head>
+    <title>{{ get_title() }} - {{ format_version('1.2.3') }}</title>
+  </head>
+  <body>
+    <h1>{{ get_title() }}
+    <h2>You are logged in as {{ user.nickname }}.</h2>
+    <div><a href="/index">Home</a></div>  
+    {% block content %}{% endblock %}  
+  </body>
+</html>
