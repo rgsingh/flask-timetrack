@@ -31,9 +31,10 @@ def editpost():
         # Filter python objects with list comprehensions
 #         filtered_task = [x for x in tasks_file if x['taskid'] == taskid]
         filtered_task = [x for x in tasks_file if get_by_taskid(x,taskid)]
+        print(filtered_task)
         task = json.dumps(filtered_task)
     return render_template('edittask.html', 
-                           id=id, 
+                           taskid=taskid, 
                            task=task)    
     
 @app.context_processor    
